@@ -20,6 +20,10 @@ const BookSchema=new Schema({
     available:{
         type:Boolean,
     },
+    image:{
+        type:String,
+        required:true,
+    }
 
 });
 module.exports=mongoose.model("Book",BookSchema);
