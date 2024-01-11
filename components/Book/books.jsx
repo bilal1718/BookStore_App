@@ -1,6 +1,8 @@
 import React,{useState,useEffect} from 'react';
 import axios from 'axios';
 import Book from './book';
+import Footer from '../footer';
+import Nav from '../nav';
 
 
 const Books = () => {
@@ -19,14 +21,17 @@ const Books = () => {
       }, []);
   return (
     <div>
-      <h1>Book List</h1>
-       <ul>
-        {books && books.map((book,i) => (
-          <div key={i}>
-            <Book book={book}/>
-          </div>
+      <Nav />
+    <h1 className="text-4xl font-semibold mt-6 mb-8 flex justify-center">All Books</h1>
+
+      <div className="container mx-auto p-4">
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
+        {books && books.map((book) => (
+        <Book book={book}/>
         ))}
-      </ul>
+    </div>
+    </div>
+    <Footer />
     </div>
   )
 }
